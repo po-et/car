@@ -1,11 +1,11 @@
-package com.car.seat.handler;
+package com.home.car.handler;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.car.seat.dto.Car;
-import com.car.seat.dto.KeyValueDto;
-import com.car.seat.dto.SerialNameDto;
+import com.home.car.dto.Car;
+import com.home.car.dto.KeyValueDto;
+import com.home.car.dto.SerialNameDto;
 import com.github.kevinsawicki.http.HttpRequest;
 import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
@@ -25,13 +25,13 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
- * car seat handler
+ * home home handler
  */
 @Slf4j
 public class CarSeatHandler {
 
-    private static final String SERIES_NAME_URL = "http://apicloud.mob.com/car/seriesname/query";
-    private static final String SERIES_ID_URL = "http://apicloud.mob.com/car/series/query";
+    private static final String SERIES_NAME_URL = "http://apicloud.mob.com/home/seriesname/query";
+    private static final String SERIES_ID_URL = "http://apicloud.mob.com/home/series/query";
     private static final String APP_KEY = "2aab26087429c";
 
 
@@ -89,14 +89,14 @@ public class CarSeatHandler {
                             carInfoList.add(carInfo);
                         }
 
-                        // assemble car
+                        // assemble home
                         Car car = new Car();
                         car.setBrand(v);
                         car.setInfoList(carInfoList);
                         carList.add(car);
 
-                        // save car
-                        log.info("car: {}", car);
+                        // save home
+                        log.info("home: {}", car);
                         saveCar(car, "res_car");
 
                         // find not only 5 seats
@@ -197,8 +197,8 @@ public class CarSeatHandler {
             e.printStackTrace();
         }
 
-//        for (Car car : carList) {
-//            saveCar(car, filename);
+//        for (Car home : carList) {
+//            saveCar(home, filename);
 //        }
     }
 

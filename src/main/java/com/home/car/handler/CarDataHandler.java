@@ -1,8 +1,8 @@
-package com.car.seat.handler;
+package com.home.car.handler;
 
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
-import com.car.seat.dto.Car;
+import com.home.car.dto.Car;
 import com.google.common.base.Joiner;
 import com.google.common.collect.Maps;
 import org.apache.commons.io.FileUtils;

@@ -1,4 +1,4 @@
-package com.car.seat.dto;
+package com.home.car.dto;
 
 import com.alibaba.fastjson.JSON;
 import lombok.Data;
@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.List;
 
 /**
- * car vo
+ * home vo
  */
 @Data
 public class Car {

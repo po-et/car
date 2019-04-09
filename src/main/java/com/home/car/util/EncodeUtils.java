@@ -1,4 +1,4 @@
-package com.car.seat.util;
+package com.home.car.util;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;

@@ -1,4 +1,4 @@
-package com.car.seat.dto;
+package com.home.car.dto;
 
 import lombok.Data;
 
