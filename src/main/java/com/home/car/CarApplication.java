@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.home.car.mapper")
+@MapperScan("com.home.car.dao")
 public class CarApplication {
 
 	public static void main(String[] args) {
