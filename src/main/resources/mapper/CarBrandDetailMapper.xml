@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.home.car.dao.CarBrandDetailDao">
+    <resultMap id="BaseResultMap" type="com.home.car.model.CarBrandDetail">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="parent_id" jdbcType="BIGINT" property="parentId"/>
+        <result column="parent_brand" jdbcType="VARCHAR" property="parentBrand"/>
+        <result column="car_brand" jdbcType="VARCHAR" property="carBrand"/>
+        <result column="car_type" jdbcType="VARCHAR" property="carType"/>
+        <result column="crtime" jdbcType="TIMESTAMP" property="crtime"/>
+        <result column="uptime" jdbcType="TIMESTAMP" property="uptime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, parent_id, parent_brand, car_brand, car_type, crtime, uptime
+    </sql>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from car_brand_detail
+    </select>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from car_brand_detail
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+
+    <insert id="insert" parameterType="com.home.car.model.CarBrandDetail">
+    insert into car_brand_detail (parent_id, parent_brand,
+      car_brand, car_type)
+    values (#{parentId,jdbcType=BIGINT}, #{parentBrand,jdbcType=VARCHAR},
+      #{carBrand,jdbcType=VARCHAR}, #{carType,jdbcType=VARCHAR})
+  </insert>
+
+    <insert id="insertList" parameterType="java.util.List">
+        insert into car_brand_detail (parent_id, parent_brand,
+        car_brand, car_type)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.parentId,jdbcType=BIGINT},
+            #{item.parentBrand,jdbcType=VARCHAR},
+            #{item.carBrand,jdbcType=VARCHAR},
+            #{item.carType,jdbcType=VARCHAR})
+        </foreach>
+    </insert>
+
+    <insert id="insertSelective" parameterType="com.home.car.model.CarBrandDetail">
+        insert into car_brand_detail
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="parentId != null">
+                parent_id,
+            </if>
+            <if test="parentBrand != null">
+                parent_brand,
+            </if>
+            <if test="carBrand != null">
+                car_brand,
+            </if>
+            <if test="carType != null">
+                car_type,
+            </if>
+            <if test="crtime != null">
+                crtime,
+            </if>
+            <if test="uptime != null">
+                uptime,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="parentId != null">
+                #{parentId,jdbcType=BIGINT},
+            </if>
+            <if test="parentBrand != null">
+                #{parentBrand,jdbcType=VARCHAR},
+            </if>
+            <if test="carBrand != null">
+                #{carBrand,jdbcType=VARCHAR},
+            </if>
+            <if test="carType != null">
+                #{carType,jdbcType=VARCHAR},
+            </if>
+            <if test="crtime != null">
+                #{crtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="uptime != null">
+                #{uptime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.home.car.model.CarBrandDetail">
+        update car_brand_detail
+        <set>
+            <if test="parentId != null">
+                parent_id = #{parentId,jdbcType=BIGINT},
+            </if>
+            <if test="parentBrand != null">
+                parent_brand = #{parentBrand,jdbcType=VARCHAR},
+            </if>
+            <if test="carBrand != null">
+                car_brand = #{carBrand,jdbcType=VARCHAR},
+            </if>
+            <if test="carType != null">
+                car_type = #{carType,jdbcType=VARCHAR},
+            </if>
+            <if test="crtime != null">
+                crtime = #{crtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="uptime != null">
+                uptime = #{uptime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.home.car.model.CarBrandDetail">
+    update car_brand_detail
+    set parent_id = #{parentId,jdbcType=BIGINT},
+      parent_brand = #{parentBrand,jdbcType=VARCHAR},
+      car_brand = #{carBrand,jdbcType=VARCHAR},
+      car_type = #{carType,jdbcType=VARCHAR},
+      crtime = #{crtime,jdbcType=TIMESTAMP},
+      uptime = #{uptime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

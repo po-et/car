@@ -2,9 +2,9 @@ package com.home.car.handler;
 
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
-import com.home.car.dto.Car;
 import com.google.common.base.Joiner;
 import com.google.common.collect.Maps;
+import com.home.car.dto.Car;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 
@@ -17,8 +17,9 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
- * data
+ * car data
  */
+@Deprecated
 public class CarDataHandler {
 
     public static void main(String[] args) {

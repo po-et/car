@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.home.car.dao.CarBodyMODao">
+  <resultMap id="BaseResultMap" type="com.home.car.model.CarBodyMO">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="parent_id" jdbcType="BIGINT" property="parentId" />
+    <result column="brand_id" jdbcType="BIGINT" property="brandId" />
+    <result column="car_id" jdbcType="INTEGER" property="carId" />
+    <result column="attribute_1" jdbcType="VARCHAR" property="attribute1" />
+    <result column="attribute_2" jdbcType="VARCHAR" property="attribute2" />
+    <result column="attribute_3" jdbcType="VARCHAR" property="attribute3" />
+    <result column="attribute_4" jdbcType="VARCHAR" property="attribute4" />
+    <result column="attribute_5" jdbcType="VARCHAR" property="attribute5" />
+    <result column="attribute_6" jdbcType="VARCHAR" property="attribute6" />
+    <result column="attribute_7" jdbcType="VARCHAR" property="attribute7" />
+    <result column="attribute_8" jdbcType="VARCHAR" property="attribute8" />
+    <result column="attribute_9" jdbcType="VARCHAR" property="attribute9" />
+    <result column="attribute_10" jdbcType="VARCHAR" property="attribute10" />
+    <result column="attribute_11" jdbcType="VARCHAR" property="attribute11" />
+    <result column="attribute_12" jdbcType="VARCHAR" property="attribute12" />
+    <result column="attribute_13" jdbcType="VARCHAR" property="attribute13" />
+    <result column="crtime" jdbcType="TIMESTAMP" property="crtime" />
+    <result column="uptime" jdbcType="TIMESTAMP" property="uptime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, parent_id, brand_id, car_id, attribute_1, attribute_2, attribute_3, attribute_4, 
+    attribute_5, attribute_6, attribute_7, attribute_8, attribute_9, attribute_10, attribute_11, 
+    attribute_12, attribute_13, crtime, uptime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_car_body
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_car_body
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.home.car.model.CarBodyMO">
+    insert into t_car_body (id, parent_id, brand_id, 
+      car_id, attribute_1, attribute_2, 
+      attribute_3, attribute_4, attribute_5, 
+      attribute_6, attribute_7, attribute_8, 
+      attribute_9, attribute_10, attribute_11, 
+      attribute_12, attribute_13, crtime, 
+      uptime)
+    values (#{id,jdbcType=BIGINT}, #{parentId,jdbcType=BIGINT}, #{brandId,jdbcType=BIGINT}, 
+      #{carId,jdbcType=INTEGER}, #{attribute1,jdbcType=VARCHAR}, #{attribute2,jdbcType=VARCHAR}, 
+      #{attribute3,jdbcType=VARCHAR}, #{attribute4,jdbcType=VARCHAR}, #{attribute5,jdbcType=VARCHAR}, 
+      #{attribute6,jdbcType=VARCHAR}, #{attribute7,jdbcType=VARCHAR}, #{attribute8,jdbcType=VARCHAR}, 
+      #{attribute9,jdbcType=VARCHAR}, #{attribute10,jdbcType=VARCHAR}, #{attribute11,jdbcType=VARCHAR}, 
+      #{attribute12,jdbcType=VARCHAR}, #{attribute13,jdbcType=VARCHAR}, #{crtime,jdbcType=TIMESTAMP}, 
+      #{uptime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.home.car.model.CarBodyMO">
+    insert into t_car_body
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="parentId != null">
+        parent_id,
+      </if>
+      <if test="brandId != null">
+        brand_id,
+      </if>
+      <if test="carId != null">
+        car_id,
+      </if>
+      <if test="attribute1 != null">
+        attribute_1,
+      </if>
+      <if test="attribute2 != null">
+        attribute_2,
+      </if>
+      <if test="attribute3 != null">
+        attribute_3,
+      </if>
+      <if test="attribute4 != null">
+        attribute_4,
+      </if>
+      <if test="attribute5 != null">
+        attribute_5,
+      </if>
+      <if test="attribute6 != null">
+        attribute_6,
+      </if>
+      <if test="attribute7 != null">
+        attribute_7,
+      </if>
+      <if test="attribute8 != null">
+        attribute_8,
+      </if>
+      <if test="attribute9 != null">
+        attribute_9,
+      </if>
+      <if test="attribute10 != null">
+        attribute_10,
+      </if>
+      <if test="attribute11 != null">
+        attribute_11,
+      </if>
+      <if test="attribute12 != null">
+        attribute_12,
+      </if>
+      <if test="attribute13 != null">
+        attribute_13,
+      </if>
+      <if test="crtime != null">
+        crtime,
+      </if>
+      <if test="uptime != null">
+        uptime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="parentId != null">
+        #{parentId,jdbcType=BIGINT},
+      </if>
+      <if test="brandId != null">
+        #{brandId,jdbcType=BIGINT},
+      </if>
+      <if test="carId != null">
+        #{carId,jdbcType=INTEGER},
+      </if>
+      <if test="attribute1 != null">
+        #{attribute1,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute2 != null">
+        #{attribute2,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute3 != null">
+        #{attribute3,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute4 != null">
+        #{attribute4,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute5 != null">
+        #{attribute5,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute6 != null">
+        #{attribute6,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute7 != null">
+        #{attribute7,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute8 != null">
+        #{attribute8,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute9 != null">
+        #{attribute9,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute10 != null">
+        #{attribute10,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute11 != null">
+        #{attribute11,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute12 != null">
+        #{attribute12,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute13 != null">
+        #{attribute13,jdbcType=VARCHAR},
+      </if>
+      <if test="crtime != null">
+        #{crtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="uptime != null">
+        #{uptime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.home.car.model.CarBodyMO">
+    update t_car_body
+    <set>
+      <if test="parentId != null">
+        parent_id = #{parentId,jdbcType=BIGINT},
+      </if>
+      <if test="brandId != null">
+        brand_id = #{brandId,jdbcType=BIGINT},
+      </if>
+      <if test="carId != null">
+        car_id = #{carId,jdbcType=INTEGER},
+      </if>
+      <if test="attribute1 != null">
+        attribute_1 = #{attribute1,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute2 != null">
+        attribute_2 = #{attribute2,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute3 != null">
+        attribute_3 = #{attribute3,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute4 != null">
+        attribute_4 = #{attribute4,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute5 != null">
+        attribute_5 = #{attribute5,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute6 != null">
+        attribute_6 = #{attribute6,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute7 != null">
+        attribute_7 = #{attribute7,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute8 != null">
+        attribute_8 = #{attribute8,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute9 != null">
+        attribute_9 = #{attribute9,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute10 != null">
+        attribute_10 = #{attribute10,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute11 != null">
+        attribute_11 = #{attribute11,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute12 != null">
+        attribute_12 = #{attribute12,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute13 != null">
+        attribute_13 = #{attribute13,jdbcType=VARCHAR},
+      </if>
+      <if test="crtime != null">
+        crtime = #{crtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="uptime != null">
+        uptime = #{uptime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.home.car.model.CarBodyMO">
+    update t_car_body
+    set parent_id = #{parentId,jdbcType=BIGINT},
+      brand_id = #{brandId,jdbcType=BIGINT},
+      car_id = #{carId,jdbcType=INTEGER},
+      attribute_1 = #{attribute1,jdbcType=VARCHAR},
+      attribute_2 = #{attribute2,jdbcType=VARCHAR},
+      attribute_3 = #{attribute3,jdbcType=VARCHAR},
+      attribute_4 = #{attribute4,jdbcType=VARCHAR},
+      attribute_5 = #{attribute5,jdbcType=VARCHAR},
+      attribute_6 = #{attribute6,jdbcType=VARCHAR},
+      attribute_7 = #{attribute7,jdbcType=VARCHAR},
+      attribute_8 = #{attribute8,jdbcType=VARCHAR},
+      attribute_9 = #{attribute9,jdbcType=VARCHAR},
+      attribute_10 = #{attribute10,jdbcType=VARCHAR},
+      attribute_11 = #{attribute11,jdbcType=VARCHAR},
+      attribute_12 = #{attribute12,jdbcType=VARCHAR},
+      attribute_13 = #{attribute13,jdbcType=VARCHAR},
+      crtime = #{crtime,jdbcType=TIMESTAMP},
+      uptime = #{uptime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

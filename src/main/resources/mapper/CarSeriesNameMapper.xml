@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.home.car.dao.CarSeriesNameDao">
+    <resultMap id="BaseResultMap" type="com.home.car.model.CarSeriesName">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="parent_id" jdbcType="BIGINT" property="parentId"/>
+        <result column="brand_id" jdbcType="BIGINT" property="brandId"/>
+        <result column="brand_name" jdbcType="VARCHAR" property="brandName"/>
+        <result column="series_name" jdbcType="VARCHAR" property="seriesName"/>
+        <result column="car_id" jdbcType="INTEGER" property="carId"/>
+        <result column="guide_price" jdbcType="VARCHAR" property="guidePrice"/>
+        <result column="car_image" jdbcType="VARCHAR" property="carImage"/>
+        <result column="crtime" jdbcType="TIMESTAMP" property="crtime"/>
+        <result column="uptime" jdbcType="TIMESTAMP" property="uptime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, parent_id, brand_id, brand_name, series_name, car_id, guide_price, car_image, crtime, uptime
+   </sql>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from car_series_name
+    </select>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from car_series_name
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+
+    <insert id="insert" parameterType="com.home.car.model.CarSeriesName">
+    insert into car_series_name (id, parent_id, brand_id, brand_name,
+      series_name, car_id, guide_price)
+    values (
+      #{id,jdbcType=BIGINT},
+      #{parentId,jdbcType=BIGINT},
+      #{brandId,jdbcType=BIGINT},
+      #{brandName,jdbcType=VARCHAR},
+      #{seriesName,jdbcType=VARCHAR},
+      #{carId,jdbcType=VARCHAR},
+      #{guidePrice,jdbcType=VARCHAR}
+      )
+  </insert>
+
+
+    <insert id="insertList" parameterType="java.util.List">
+        insert into car_series_name (id, parent_id, brand_id, brand_name,
+        series_name, car_id, guide_price)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.id,jdbcType=BIGINT},
+            #{item.parentId,jdbcType=BIGINT},
+            #{item.brandId,jdbcType=BIGINT},
+            #{item.brandName,jdbcType=VARCHAR},
+            #{item.seriesName,jdbcType=VARCHAR},
+            #{item.carId,jdbcType=VARCHAR},
+            #{item.guidePrice,jdbcType=VARCHAR}
+            )
+        </foreach>
+    </insert>
+
+    <insert id="insertSelective" parameterType="com.home.car.model.CarSeriesName">
+        insert into car_series_name
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="brandId != null">
+                brand_id,
+            </if>
+            <if test="brandName != null">
+                brand_name,
+            </if>
+            <if test="seriesName != null">
+                series_name,
+            </if>
+            <if test="carId != null">
+                car_id,
+            </if>
+            <if test="guidePrice != null">
+                guide_price,
+            </if>
+            <if test="crtime != null">
+                crtime,
+            </if>
+            <if test="uptime != null">
+                uptime,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="brandId != null">
+                #{brandId,jdbcType=BIGINT},
+            </if>
+            <if test="brandName != null">
+                #{brandName,jdbcType=VARCHAR},
+            </if>
+            <if test="seriesName != null">
+                #{seriesName,jdbcType=VARCHAR},
+            </if>
+            <if test="carId != null">
+                #{carId,jdbcType=VARCHAR},
+            </if>
+            <if test="guidePrice != null">
+                #{guidePrice,jdbcType=VARCHAR},
+            </if>
+            <if test="crtime != null">
+                #{crtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="uptime != null">
+                #{uptime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.home.car.model.CarSeriesName">
+        update car_series_name
+        <set>
+            <if test="brandId != null">
+                brand_id = #{brandId,jdbcType=BIGINT},
+            </if>
+            <if test="brandName != null">
+                brand_name = #{brandName,jdbcType=VARCHAR},
+            </if>
+            <if test="seriesName != null">
+                series_name = #{seriesName,jdbcType=VARCHAR},
+            </if>
+            <if test="carId != null">
+                car_id = #{carId,jdbcType=VARCHAR},
+            </if>
+            <if test="guidePrice != null">
+                guide_price = #{guidePrice,jdbcType=VARCHAR},
+            </if>
+            <if test="crtime != null">
+                crtime = #{crtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="uptime != null">
+                uptime = #{uptime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+    <update id="updateCarImage" parameterType="com.home.car.model.CarSeriesName">
+    update car_series_name
+    set car_image = #{carImage,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
