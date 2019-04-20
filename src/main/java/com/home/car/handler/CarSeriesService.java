@@ -142,10 +142,9 @@ public class CarSeriesService {
 
     private void saveAirConfigMO(CarSeriesName car, JSONArray array) {
         if (Objects.isNull(array)) {
-            log.error("JSONArray is empty! car: {}", car);
+            log.warn("JSONArray is empty! car: {}", car);
             return;
         }
-
 
         AirConfigMO mo = new AirConfigMO();
         try {
@@ -158,16 +157,17 @@ public class CarSeriesService {
             mo.setAttribute4(array.getJSONObject(3).getString("value"));
             mo.setAttribute5(array.getJSONObject(4).getString("value"));
             mo.setAttribute6(array.getJSONObject(5).getString("value"));
-            airConfigMODao.insertSelective(mo);
 
         } catch (Exception e) {
-            log.error("Error! car: Car: {}, JsonArray: {}", car, array);
+            log.error("Error! car: JsonArray: " + array, e);
         }
+
+        airConfigMODao.insertSelective(mo);
     }
 
     private void saveBaseInfoMO(CarSeriesName car, JSONArray array) {
         if (Objects.isNull(array)) {
-            log.error("JSONArray is empty! car: {}", car);
+            log.warn("JSONArray is empty! car: {}", car);
             return;
         }
 
@@ -193,16 +193,17 @@ public class CarSeriesService {
             mo.setAttribute15(array.getJSONObject(14).getString("value"));
             mo.setAttribute16(array.getJSONObject(15).getString("value"));
 
-            baseInfoMODao.insertSelective(mo);
 
         } catch (Exception e) {
-            log.error("Error! car: Car: {}, JsonArray: {}", car, array);
+            log.error("Error! car: JsonArray: " + array, e);
         }
+
+        baseInfoMODao.insertSelective(mo);
     }
 
     private void saveCarBodyMO(CarSeriesName car, JSONArray array) {
         if (Objects.isNull(array)) {
-            log.error("JSONArray is empty! car: {}", car);
+            log.warn("JSONArray is empty! car: {}", car);
             return;
         }
 
@@ -225,16 +226,16 @@ public class CarSeriesService {
             mo.setAttribute12(array.getJSONObject(11).getString("value"));
             mo.setAttribute13(array.getJSONObject(12).getString("value"));
 
-            carBodyMODao.insertSelective(mo);
-
         } catch (Exception e) {
-            log.error("Error! car: Car: {}, JsonArray: {}", car, array);
+            log.error("Error! car: JsonArray: " + array, e);
         }
+
+        carBodyMODao.insertSelective(mo);
     }
 
     private void saveChassisMO(CarSeriesName car, JSONArray array) {
         if (Objects.isNull(array)) {
-            log.error("JSONArray is empty! car: {}", car);
+            log.warn("JSONArray is empty! car: {}", car);
             return;
         }
 
@@ -249,15 +250,16 @@ public class CarSeriesService {
             mo.setAttribute4(array.getJSONObject(3).getString("value"));
             mo.setAttribute5(array.getJSONObject(4).getString("value"));
 
-            chassisMODao.insertSelective(mo);
         } catch (Exception e) {
-            log.error("Error! car: Car: {}, JsonArray: {}", car, array);
+            log.error("Error! car: JsonArray: " + array, e);
         }
+
+        chassisMODao.insertSelective(mo);
     }
 
     private void saveControlConfigMO(CarSeriesName car, JSONArray array) {
         if (Objects.isNull(array)) {
-            log.error("JSONArray is empty! car: {}", car);
+            log.warn("JSONArray is empty! car: {}", car);
             return;
         }
 
@@ -281,16 +283,16 @@ public class CarSeriesService {
             mo.setAttribute13(array.getJSONObject(12).getString("value"));
             mo.setAttribute14(array.getJSONObject(13).getString("value"));
 
-            controlConfigMODao.insertSelective(mo);
-
         } catch (Exception e) {
-            log.error("Error! car: Car: {}, JsonArray: {}", car, array);
+            log.error("Error! car: JsonArray: " + array, e);
         }
+
+        controlConfigMODao.insertSelective(mo);
     }
 
     private void saveEngineMO(CarSeriesName car, JSONArray array) {
         if (Objects.isNull(array)) {
-            log.error("JSONArray is empty! car: {}", car);
+            log.warn("JSONArray is empty! car: {}", car);
             return;
         }
 
@@ -322,16 +324,17 @@ public class CarSeriesService {
             mo.setAttribute21(array.getJSONObject(20).getString("value"));
             mo.setAttribute22(array.getJSONObject(21).getString("value"));
             mo.setAttribute23(array.getJSONObject(22).getString("value"));
-            engineMODao.insertSelective(mo);
 
         } catch (Exception e) {
-            log.error("Error! car: Car: {}, JsonArray: {}", car, array);
+            log.error("Error! car: JsonArray: " + array, e);
         }
+
+        engineMODao.insertSelective(mo);
     }
 
     private void saveExterConfigMO(CarSeriesName car, JSONArray array) {
         if (Objects.isNull(array)) {
-            log.error("JSONArray is empty! car: {}", car);
+            log.warn("JSONArray is empty! car: {}", car);
             return;
         }
 
@@ -350,15 +353,16 @@ public class CarSeriesService {
             mo.setAttribute8(array.getJSONObject(7).getString("value"));
             mo.setAttribute9(array.getJSONObject(8).getString("value"));
 
-            exterConfigMODao.insertSelective(mo);
         } catch (Exception e) {
-            log.error("Error! car: Car: {}, JsonArray: {}", car, array);
+            log.error("Error! car: JsonArray: " + array, e);
         }
+
+        exterConfigMODao.insertSelective(mo);
     }
 
     private void saveGlassConfigMO(CarSeriesName car, JSONArray array) {
         if (Objects.isNull(array)) {
-            log.error("JSONArray is empty! car: {}", car);
+            log.warn("JSONArray is empty! car: {}", car);
             return;
         }
 
@@ -382,15 +386,16 @@ public class CarSeriesService {
             mo.setAttribute13(array.getJSONObject(12).getString("value"));
             mo.setAttribute14(array.getJSONObject(13).getString("value"));
 
-            glassConfigMODao.insertSelective(mo);
         } catch (Exception e) {
-            log.error("Error! car: Car: {}, JsonArray: {}", car, array);
+            log.error("Error! car: JsonArray: " + array, e);
         }
+
+        glassConfigMODao.insertSelective(mo);
     }
 
     private void saveInterConfigMO(CarSeriesName car, JSONArray array) {
         if (Objects.isNull(array)) {
-            log.error("JSONArray is empty! car: {}", car);
+            log.warn("JSONArray is empty! car: {}", car);
             return;
         }
 
@@ -413,15 +418,16 @@ public class CarSeriesService {
             mo.setAttribute12(array.getJSONObject(11).getString("value"));
             mo.setAttribute13(array.getJSONObject(12).getString("value"));
 
-            interConfigMODao.insertSelective(mo);
         } catch (Exception e) {
-            log.error("Error! car: Car: {}, JsonArray: {}", car, array);
+            log.error("Error! car: JsonArray: " + array, e);
         }
+
+        interConfigMODao.insertSelective(mo);
     }
 
     private void saveLightConfigMO(CarSeriesName car, JSONArray array) {
         if (Objects.isNull(array)) {
-            log.error("JSONArray is empty! car: {}", car);
+            log.warn("JSONArray is empty! car: {}", car);
             return;
         }
 
@@ -442,15 +448,16 @@ public class CarSeriesService {
             mo.setAttribute10(array.getJSONObject(9).getString("value"));
             mo.setAttribute11(array.getJSONObject(10).getString("value"));
 
-            lightConfigMODao.insertSelective(mo);
         } catch (Exception e) {
-            log.error("Error! car: Car: {}, JsonArray: {}", car, array);
+            log.error("Error! car: JsonArray: " + array, e);
         }
+
+        lightConfigMODao.insertSelective(mo);
     }
 
     private void saveMediaConfigMO(CarSeriesName car, JSONArray array) {
         if (Objects.isNull(array)) {
-            log.error("JSONArray is empty! car: {}", car);
+            log.warn("JSONArray is empty! car: {}", car);
             return;
         }
 
@@ -472,15 +479,16 @@ public class CarSeriesService {
             mo.setAttribute11(array.getJSONObject(10).getString("value"));
             mo.setAttribute12(array.getJSONObject(11).getString("value"));
 
-            mediaConfigMODao.insertSelective(mo);
         } catch (Exception e) {
-            log.error("Error! car: Car: {}, JsonArray: {}", car, array);
+            log.error("Error! car: JsonArray: " + array, e);
         }
+
+        mediaConfigMODao.insertSelective(mo);
     }
 
     private void saveSafetyDeviceMO(CarSeriesName car, JSONArray array) {
         if (Objects.isNull(array)) {
-            log.error("JSONArray is empty! car: {}", car);
+            log.warn("JSONArray is empty! car: {}", car);
             return;
         }
 
@@ -503,15 +511,16 @@ public class CarSeriesService {
             mo.setAttribute12(array.getJSONObject(11).getString("value"));
             mo.setAttribute13(array.getJSONObject(12).getString("value"));
 
-            safetyDeviceMODao.insertSelective(mo);
         } catch (Exception e) {
-            log.error("Error! car: Car: {}, JsonArray: {}", car, array);
+            log.error("Error! car: JsonArray: " + array, e);
         }
+
+        safetyDeviceMODao.insertSelective(mo);
     }
 
     private void saveSeatConfigMO(CarSeriesName car, JSONArray array) {
         if (Objects.isNull(array)) {
-            log.error("JSONArray is empty! car: {}", car);
+            log.warn("JSONArray is empty! car: {}", car);
             return;
         }
 
@@ -538,15 +547,16 @@ public class CarSeriesService {
             mo.setAttribute16(array.getJSONObject(15).getString("value"));
             mo.setAttribute17(array.getJSONObject(16).getString("value"));
 
-            seatConfigMODao.insertSelective(mo);
         } catch (Exception e) {
-            log.error("Error! car: Car: {}, JsonArray: {}", car, array);
+            log.error("Error! car: JsonArray: " + array, e);
         }
+
+        seatConfigMODao.insertSelective(mo);
     }
 
     private void saveTechConfigMO(CarSeriesName car, JSONArray array) {
         if (Objects.isNull(array)) {
-            log.error("JSONArray is empty! car: {}", car);
+            log.warn("JSONArray is empty! car: {}", car);
             return;
         }
 
@@ -566,15 +576,16 @@ public class CarSeriesService {
             mo.setAttribute9(array.getJSONObject(8).getString("value"));
             mo.setAttribute10(array.getJSONObject(9).getString("value"));
 
-            techConfigMODao.insertSelective(mo);
         } catch (Exception e) {
-            log.error("Error! car: Car: {}, JsonArray: {}", car, array);
+            log.error("Error! car: JsonArray: " + array, e);
         }
+
+        techConfigMODao.insertSelective(mo);
     }
 
     private void saveTransmissionMO(CarSeriesName car, JSONArray array) {
         if (Objects.isNull(array)) {
-            log.error("JSONArray is empty! car: {}", car);
+            log.warn("JSONArray is empty! car: {}", car);
             return;
         }
 
@@ -587,15 +598,16 @@ public class CarSeriesService {
             mo.setAttribute2(array.getJSONObject(1).getString("value"));
             mo.setAttribute3(array.getJSONObject(2).getString("value"));
 
-            transmissionMODao.insertSelective(mo);
         } catch (Exception e) {
-            log.error("Error! car: Car: {}, JsonArray: {}", car, array);
+            log.error("Error! car: JsonArray: " + array, e);
         }
+
+        transmissionMODao.insertSelective(mo);
     }
 
     private void saveWheelInfoMO(CarSeriesName car, JSONArray array) {
         if (Objects.isNull(array)) {
-            log.error("JSONArray is empty! car: {}", car);
+            log.warn("JSONArray is empty! car: {}", car);
             return;
         }
 
@@ -611,11 +623,12 @@ public class CarSeriesService {
             mo.setAttribute5(array.getJSONObject(4).getString("value"));
             mo.setAttribute6(array.getJSONObject(5).getString("value"));
 
-            wheelInfoMODao.insertSelective(mo);
 
         } catch (Exception e) {
-            log.error("Error! car: Car: {}, JsonArray: {}", car, array);
+            log.error("Error! car: JsonArray: " + array, e);
         }
+
+        wheelInfoMODao.insertSelective(mo);
     }
 
 }
