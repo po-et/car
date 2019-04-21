@@ -248,16 +248,11 @@ public class CarSeatHandler {
     public static void main(String[] args) {
         try {
             List<Car> carList = assembleVO();
-            System.out.println("---------");
             saveCarList(carList);
-
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println("---------");
     }
-
-
 
 
 }

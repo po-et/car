@@ -1,9 +1,6 @@
 package com.home.car.enums;
 
-/**
- * @Author: bin.yang
- * @Date: 2019-04-14
- */
+
 public class UrlConstant {
 
     public static final String SERIES_NAME_URL = "http://apicloud.mob.com/car/seriesname/query";
