@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.home.car.dao.CarBrandDao">
+    <resultMap id="BaseResultMap" type="com.home.car.model.CarBrand">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="brand" jdbcType="VARCHAR" property="brand"/>
+        <result column="crtime" jdbcType="TIMESTAMP" property="crtime"/>
+        <result column="uptime" jdbcType="TIMESTAMP" property="uptime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, brand, crtime, uptime
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from car_brand
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+
+    <insert id="insert" parameterType="com.home.car.model.CarBrand">
+    insert into car_brand (id, brand)
+    values (#{id,jdbcType=BIGINT}, #{brand,jdbcType=VARCHAR})
+  </insert>
+
+    <insert id="insertList" parameterType="java.util.List">
+        insert into car_brand (id, brand)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.id,jdbcType=BIGINT},
+            #{item.brand,jdbcType=VARCHAR})
+        </foreach>
+    </insert>
+
+
+    <insert id="insertSelective" parameterType="com.home.car.model.CarBrand">
+        insert into car_brand
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="brand != null">
+                brand,
+            </if>
+            <if test="crtime != null">
+                crtime,
+            </if>
+            <if test="uptime != null">
+                uptime,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="brand != null">
+                #{brand,jdbcType=VARCHAR},
+            </if>
+            <if test="crtime != null">
+                #{crtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="uptime != null">
+                #{uptime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.home.car.model.CarBrand">
+        update car_brand
+        <set>
+            <if test="brand != null">
+                brand = #{brand,jdbcType=VARCHAR},
+            </if>
+            <if test="crtime != null">
+                crtime = #{crtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="uptime != null">
+                uptime = #{uptime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.home.car.model.CarBrand">
+    update car_brand
+    set brand = #{brand,jdbcType=VARCHAR},
+      crtime = #{crtime,jdbcType=TIMESTAMP},
+      uptime = #{uptime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

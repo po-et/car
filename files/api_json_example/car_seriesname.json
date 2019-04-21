@@ -1,0 +1,24 @@
+{
+  "msg": "success",
+  "result": [
+    {
+      "brandName": "Rapide",
+      "carId": "104012",
+      "guidePrice": "298.80万",
+      "seriesName": "Rapide2016款RapideCE"
+    },
+    {
+      "brandName": "Rapide",
+      "carId": "104013",
+      "guidePrice": "318.80万",
+      "seriesName": "Rapide2016款RapideGreatBritainEdition"
+    },
+    {
+      "brandName": "Rapide",
+      "carId": "104014",
+      "guidePrice": "364.50万",
+      "seriesName": "Rapide2016款6.0LS"
+    }
+  ],
+  "retCode": "200"
+}
